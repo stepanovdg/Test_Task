@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+        "http://struts.apache.org/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="newsManagement.page" path="/view/layouts/layout.jsp">
+        	<put name="header" value="/view/tiles/header.jsp"/>
+        	<put name="menu" value="/view/tiles/menu.jsp"/>
+        	<put name="body" value="/view/tiles/body.jsp"/>
+        	<put name="footer" value="/view/tiles/footer.jsp"/>
+    	</definition>
+	<definition name="newsList.page" extends="newsManagement.page">
+        	<put name="body" value="/view/tiles/news/newsList.jsp"/>
+ 	</definition>
+    <definition name="newsView.page" extends="newsManagement.page">
+        	<put name="body" value="/view/tiles/news/newsView.jsp"/>
+ 	</definition>
+    <definition name="newsEdit.page" extends="newsManagement.page">
+        	<put name="body" value="/view/tiles/news/newsEdit.jsp"/>
+ 	</definition>
+    <definition name="error.page" extends="newsManagement.page">
+        	<put name="body" value="/view/error.jsp"/>
+ 	</definition>
+
+</tiles-definitions>

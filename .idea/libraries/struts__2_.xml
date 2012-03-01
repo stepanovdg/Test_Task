@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="struts (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/commons-io_1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-fileupload_1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

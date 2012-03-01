@@ -1,0 +1,337 @@
+HTML {
+    height: 100%;
+}
+
+.a {
+    padding-left: 1em;
+}
+
+BODY {
+    height: 100%;
+    color: #000000;
+    cursor: default;
+    font-size: 11px;
+    line-height: 16px;
+    background: #ffffff no-repeat 50% 0;
+    font-family: Tahoma, sans-serif;
+    overflow-x: hidden;
+}
+
+.floatLeft {
+    float: left;
+}
+
+#page {
+    width: 100%;
+    min-height:700px;
+    min-width: 500px;
+    border: 2px solid black;
+    height: 100%;
+}
+
+#header {
+    width: 100%;
+    min-width: 800px;
+    border: 2px solid black;
+    font-size: 1.5em;
+    font-weight: 700;
+    height: 5em;
+}
+
+.link {
+
+}
+
+#logo {
+    clear:left;
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: 700;
+    padding-top: 1em;
+    padding-left: 2em;
+
+}
+
+#language {
+    float: right;
+    clear:right;
+    text-align: right;;
+    font-size: 1em;
+    padding-top: 1em;
+    padding-right: 2em;
+
+}
+
+#footer {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    border-top: 2px solid black;
+    vertical-align: bottom;
+    height: 2em;
+    min-height: 20px;
+}
+
+#mider {
+
+    vertical-align: middle;
+    float: inherit;
+    height: 85%;
+}
+
+#body {
+    margin-top: 1%;
+    height: 97%;
+    vertical-align: middle;
+    border: 2px solid #cccccc;
+    margin-right: 1%;
+    width: 70%;
+   /* max-width: 300px;  */
+    float: right;
+    clear: right;
+}
+
+#menu {
+    height: 97%;
+    vertical-align: middle;
+    margin-top: 1%;
+    margin-left: 1%;
+    width: 20%;
+    float: left;
+    clear: left;
+}
+
+#menuTitle {
+    color: #cccccc;
+    text-align: center;
+    background: #666666;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+#menuLink {
+    margin-top: 0.5em;
+    margin-left: 3em;
+    margin-right: 0.5em;
+    text-align: center;
+    background: #ffffff;
+    color: #0033ff;
+    height:4em;
+    width: 100%;
+}
+
+#menuBackground {
+    margin: 0em 2em 2em;
+    background: #999999;
+    height: 10em;;
+}
+
+#view {
+    padding: 4.5%;
+    height: 90%;
+}
+
+#view .names {
+    color: #cccccc;
+}
+
+#view .output {
+    font-weight: bold;
+    color: #000000;
+}
+
+#edit {
+    padding: 4.5%;
+    height: 90%;
+}
+
+#edit form {
+   /* height: 100%;   */
+}
+
+#list {
+    padding: 4.5%;
+    height: 90%;
+}
+#list form {
+   height: 100%;
+}
+
+#list input {
+    padding-right: 2%;
+    float: right;
+    clear:right;
+}
+#newsBlock {
+    overflow-x: hidden;
+    padding: 4.5%;
+}
+#newsBlock label {
+    border: 2px solid #cccccc;
+    /*width:300px;     */
+    word-wrap: break-word;
+    max-width: 300px;
+    table-layout: fixed;
+}
+
+#copyright {
+    padding-top: 0.5em;
+}
+
+#Lbl002 {
+    padding-right: 5%;
+    width: 70%;
+    padding-bottom: 2%;
+    float: left;
+    clear: left;
+}
+
+#Lbl003 {
+    padding-bottom: 4%;
+    padding-right: 100px;
+    width: 600px;
+    overflow-y: hidden;
+  /*  width: 75%;  */
+    float: none;
+    clear: left;
+}
+
+#Lbl004 {
+    width: 20%;
+    padding-bottom: 2%;
+    float: right;
+    clear: left;
+}
+#listlinks{
+    float:right;
+    clear: right;
+    padding-bottom: 2%;
+    width: 30%;
+}
+#Cb001 {
+
+    float: right;
+    clear: none;
+    padding-right: 10%;
+}
+
+#Lnk001 {
+    /*padding-left: 84%; */
+ float: left;
+    clear: none;
+    padding-right: 10%;
+}
+
+#Lnk002 {
+
+    float: left;
+    clear: none;
+    padding-right: 10%;
+}
+
+#Txt001 {
+
+    width: 100%;
+
+    text-align: left;
+  /*  padding-bottom: 3%; */
+    padding-top: 3%;
+    vertical-align: middle;
+}
+
+#Txt001 input {
+
+    margin-left: 3%;
+    margin-right: 10%;
+    vertical-align: middle;
+}
+
+#Txt003 {
+    width: 100%;
+
+    text-align: left;
+   /* padding-bottom: 3%; */
+    padding-top: 3%;
+    vertical-align: middle;
+}
+
+#Txt003 input {
+    margin-left: 3%;
+    margin-right: 150px;
+    vertical-align: middle;
+}
+
+#TxtA002 {
+   /* width: 100%;  */
+
+    text-align: left;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    vertical-align: middle;
+}
+
+#TxtA002 textarea {
+    height: 12em;
+    float: right;
+    margin-left: 3%;
+    margin-right: 5%;
+  /*  width: 75%;       */
+    vertical-align: middle;
+}
+
+#TxtA001 {
+    width: 100%;
+
+    text-align: left;
+  padding-bottom: 3%;
+    padding-top: 3%;
+    vertical-align: middle;
+}
+
+#TxtA001 textarea {
+    height: 9em;
+     page-break-inside:auto;
+    float: right;
+    margin-left: 3%;
+    margin-right: 5%;
+    width: 75%;
+    vertical-align: middle;
+}
+
+.names {
+
+    float: left;
+    clear: right;
+}
+.hidden {
+    /*word-wrap: normal; */
+    float: right;
+    clear: right;
+}
+
+.output {
+    margin-left: 15px;
+    float: right;
+    word-wrap: break-word;
+    margin-right: 130px;
+    clear: right;
+
+
+}
+.output #view {
+    max-width: 200px;
+    margin-right: 200px;
+    width: 70%;
+}
+
+#Btn001 {
+    padding-left: 40%;
+    float: left;
+
+}
+
+#Btn002 {
+    padding-right: 40%;
+    float: right;
+
+}

@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="struts">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/struts-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/antlr.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-chain.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-beanutils.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-digester.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-validator.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/oro.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts-taglib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts-tiles.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts-faces.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts-scripting.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bsf.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts-extras.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts-el.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/standard.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

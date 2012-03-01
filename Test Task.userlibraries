@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="3.1.0">
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-core.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-asm.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-beans.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-context.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-expression.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-aop.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-aspects.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-tx.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-instrument.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-jdbc.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-jms.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-orm.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-oxm.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring-test.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/commons-logging_1.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/aopalliance.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/spring.jar" />
+  </library>
+  <library name="struts">
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/struts-core.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/antlr.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/commons-chain.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/commons-beanutils.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/commons-digester.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/commons-validator.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/oro.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/struts-taglib.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/struts-tiles.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/struts-faces.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/struts-scripting.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/bsf.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/struts-extras.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/struts-el.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/jstl.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/standard.jar" />
+  </library>
+  <library name="Java EE 6">
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/javax.annotation.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/javax.ejb.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/javax.jms.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/javax.persistence.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/javax.transaction.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/javax.resource.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/javax.servlet.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/javax.servlet.jsp.jar" />
+  </library>
+  <library name="struts (2)">
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/commons-io_1.jar" />
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Documents/Java/Intelig.Idea/Test Task/lib/commons-fileupload_1.jar" />
+  </library>
+  <library name="JDBC drivers">
+    <archive path="C:/Documents and Settings/Dzmitry_Stsiapanau/Desktop/ojdbc6.jar" />
+  </library>
+</eclipse-userlibraries>
+
