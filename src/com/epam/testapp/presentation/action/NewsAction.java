@@ -38,6 +38,8 @@ public class NewsAction extends LookupDispatchAction {
     private static final String ERROR_NEWS_DB_SAVE = "error.news.db.save";
     private static final String SAVE = "save";
     private static final String EDIT_PAGE = "editPage";
+    private static final String SAVE_PAGE ="savePage";
+
 
 
     private NewsDAOIF newsDAO;
@@ -106,43 +108,41 @@ public class NewsAction extends LookupDispatchAction {
                               HttpServletRequest request,
                               HttpServletResponse response)
             throws IOException, ServletException {
-        NewsForm newsForm = (NewsForm) form;
-        ActionErrors errors = new ActionErrors();
-        try {
-            if (newsForm.getIdSelected() != null) {
-                newsForm.setNewsMessage(newsDAO.fetchById(newsForm.getIdSelected()));
-            } else {
-                newsForm.setNewsMessage(newsDAO.fetchById(newsForm.getNewsMessage().getNewsId()));
-            }
-        } catch (SQLException e) {
-            errors.add(VIEW, new ActionMessage(ERROR_NEWS_DB_VIEW));
-        }
-        if (!errors.isEmpty()) {
-            saveErrors(request, errors);
+
+        if (fetching(request,form,VIEW,ERROR_NEWS_DB_VIEW)){
             return (new ActionForward(mapping.findForward(ERROR_PAGE)));
         }
         return mapping.findForward(VIEW_PAGE);
     }
 
+    private boolean fetching( HttpServletRequest request,
+                              ActionForm form,
+                              String errorName,
+                              String errorMessage) {
+        NewsForm newsForm = (NewsForm) form;
+        ActionErrors errors = new ActionErrors();
+        try {
+            if (newsForm.getSelectedId() != null) {
+                newsForm.setNewsMessage(newsDAO.fetchById(newsForm.getSelectedId()));
+            } else {
+                newsForm.setNewsMessage(newsDAO.fetchById(newsForm.getNewsMessage().getNewsId()));
+            }
+        } catch (SQLException e) {
+            errors.add(errorName, new ActionMessage(errorMessage));
+        }
+        if (!errors.isEmpty()) {
+            saveErrors(request, errors);
+            return true;
+        }
+        return false;
+    }
 
     public ActionForward edit(ActionMapping mapping,
                               ActionForm form,
                               HttpServletRequest request,
                               HttpServletResponse response)
             throws IOException, ServletException {
-        NewsForm newsForm = (NewsForm) form;
-        ActionErrors errors = new ActionErrors();
-        try {
-            if (newsForm.getIdSelected() != null) {
-                newsForm.setNewsMessage(newsDAO.fetchById(newsForm.getIdSelected()));
-            } else {
-                newsForm.setNewsMessage(newsDAO.fetchById(newsForm.getNewsMessage().getNewsId()));
-            }
-        } catch (SQLException e) {
-            errors.add(EDIT, new ActionMessage(ERROR_NEWS_DB_EDIT));
-        }
-        if (!errors.isEmpty()) {
-            saveErrors(request, errors);
+        if (fetching(request, form, EDIT, ERROR_NEWS_DB_EDIT)){
             return (new ActionForward(mapping.findForward(ERROR_PAGE)));
         }
         saveToken(request);
@@ -163,7 +163,6 @@ public class NewsAction extends LookupDispatchAction {
             } else {
                 newsDAO.remove(newsMessage.getNewsId());
             }
-            newsForm.setNewsList(newsDAO.getList());
         } catch (SQLException e) {
             errors.add(DELETE, new ActionMessage(ERROR_NEWS_DB_REMOVE));
         }
@@ -172,6 +171,11 @@ public class NewsAction extends LookupDispatchAction {
             return (new ActionForward(mapping.getInput()));
         }
         return mapping.findForward(DELETE_PAGE);
+    }
+
+    @Override
+    protected ActionForward unspecified(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        return list(mapping,form,request,response);
     }
 
     public ActionForward save(ActionMapping mapping,
@@ -190,9 +194,8 @@ public class NewsAction extends LookupDispatchAction {
                     newsDAO.add(newsMessage);
                 }
             } else {
-                return view(mapping, form, request, response);
+                 return mapping.findForward(SAVE_PAGE);
             }
-            newsForm.setNewsList(newsDAO.getList());
         } catch (SQLException e) {
             errors.add(SAVE, new ActionMessage(ERROR_NEWS_DB_SAVE));
         }
@@ -201,7 +204,7 @@ public class NewsAction extends LookupDispatchAction {
             return (new ActionForward(mapping.getInput()));
         }
         resetToken(request);
-        return view(mapping, form, request, response);
+        return mapping.findForward(SAVE_PAGE);
     }
 
     public ActionForward add(ActionMapping mapping,
@@ -213,7 +216,7 @@ public class NewsAction extends LookupDispatchAction {
         Date creationDate = new Date(System.currentTimeMillis());
         News newsMessage = new News(null, "", creationDate, "", "");
         newsForm.setNewsMessage(newsMessage);
-        newsForm.setIdSelected(null);
+        newsForm.setSelectedId(null);
         saveToken(request);
         return mapping.findForward(EDIT_PAGE);
     }

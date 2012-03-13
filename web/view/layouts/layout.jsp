@@ -3,7 +3,6 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles-el" prefix="tiles" %>
 <html>
 <head>
-    <!--link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"/-->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/ie.css"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/news.js"></script>

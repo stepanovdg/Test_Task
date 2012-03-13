@@ -18,22 +18,22 @@ public class NewsForm extends ActionForm {
     private News newsMessage;
     private List<News> newsList;
     private Integer[] selected;
-    private Integer idSelected;
+    private Integer selectedId;
 
 
-    public Integer getIdSelected() {
-        return idSelected;
+    public Integer getSelectedId() {
+        return selectedId;
     }
 
-    public void setIdSelected(Integer idSelected) {
-        this.idSelected = idSelected;
+    public void setSelectedId(Integer selectedId) {
+        this.selectedId = selectedId;
     }
 
 
     @Override
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-        // selected = null;
-        // idSelected = null;
+         selected = null;
+        // selectedId = null;
         //  newsMessage = null;
     }
 

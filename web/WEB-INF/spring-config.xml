@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
-    <!--bean id="entityManagerFactory"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+    <context:component-scan
+            base-package="com.epam.testapp"/>
+    <context:annotation-config/>
+    <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+        <property name="persistenceUnitName" value="testTask"/>
         <property name="jpaVendorAdapter">
-            <bean
-                    class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="database" value="ORACLE"/>
                 <property name="showSql" value="true"/>
             </bean>
@@ -20,11 +25,34 @@
         <property name="username" value="user"/>
         <property name="password" value="user"/>
     </bean>
-    <bean id="transactionManager"
-          class="org.springframework.orm.jpa.JpaTransactionManager">
+    <bean id="transactionManagerJPA"
+          class="org.springframework.orm.jpa.JpaTransactionManager" scope="singleton">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
-    <tx:annotation-driven transaction-manager="transactionManager"/-->
+    <!--tx:annotation-driven transaction-manager="transactionManagerJPA"/-->
+    <tx:annotation-driven transaction-manager="transactionManagerHibernate"/>
+    <bean id="newsJPADAO" class="com.epam.testapp.database.jpa.NewsJPADAO"/>
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses" value="com.epam.testapp.model.News"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.current_session_context_class">
+                    org.springframework.orm.hibernate4.SpringSessionContext
+                </prop>
+                <prop key="hibernate.jdbc.use_get_generated_keys">true</prop>
+                <prop key="dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.cache.use_second_level_cache">false</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="transactionManagerHibernate"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
     <bean id="connectionManager" scope="singleton" class="com.epam.testapp.JDBC.pool.ConnectionManager">
         <constructor-arg index="0" value="oracle.jdbc.OracleDriver"/>
         <constructor-arg index="1" value="jdbc:oracle:thin:user/user@127.0.0.1:1521"/>
@@ -36,9 +64,12 @@
     <bean id="newsDAO" class="com.epam.testapp.JDBC.pool.NewsDAO">
         <property name="connectionManager" ref="connectionManager"/>
     </bean>
+
     <bean name="/newsAction"
           class="com.epam.testapp.presentation.action.NewsAction">
-        <property name="newsDAO" ref="newsDAO"/>
+        <!--property name="newsDAO" ref="newsDAO"/-->
+        <property name="newsDAO" ref="newsHibernateDAO"/>
+        <!--property name="newsDAO" ref="newsJPADAO"/-->
     </bean>
     <bean name="/changeLanguage"
           class="com.epam.testapp.presentation.action.ChangeLanguage">

@@ -6,7 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -18,10 +21,9 @@ import java.util.List;
  */
 @Transactional
 public class NewsJPADAO implements NewsDAOIF {
-    private static final String NEWS_GET_ALL = "from News order by creationDate desc ";
-    private Class<News> persistentClass;
+    private static final String CREATION_DATE = "creationDate";
+    private Class<News> persistentClass = News.class;
     protected EntityManager em;
-
 
     @PersistenceContext
     public void setEntityManager(EntityManager em) {
@@ -34,19 +36,24 @@ public class NewsJPADAO implements NewsDAOIF {
 
     @Override
     public List<News> getList() throws SQLException {
-        Query query = this.em.createQuery(NEWS_GET_ALL);
-        return query.getResultList();
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<News> criteriaQuery = criteriaBuilder.createQuery(persistentClass);
+        Root<News> newsRoot = criteriaQuery.from(persistentClass);
+        criteriaQuery.orderBy(criteriaBuilder.desc(newsRoot.<Object>get(CREATION_DATE)));
+        TypedQuery<News> typedQuery = em.createQuery(criteriaQuery);
+        return typedQuery.getResultList();
     }
 
     @Override
     public boolean save(News news) throws SQLException {
-        getEntityManager().persist(news);
+        getEntityManager().flush();
         return true;
     }
 
     @Override
     public boolean add(News news) throws SQLException {
-        return save(news);
+        getEntityManager().persist(news);
+        return true;
     }
 
     @Override

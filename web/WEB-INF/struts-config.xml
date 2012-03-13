@@ -17,13 +17,13 @@
         <forward name="newsList" path="newsList.page"/>
         <forward name="viewPage" path="newsView.page"/>
         <forward name="editPage" path="newsEdit.page"/>
-        <forward name="deletePage" path="newsList.page"/>
-        <forward name="savePage" path="newsView.page" redirect="true"/>
+        <forward name="deletePage" path="/newsAction.do" redirect="true"/>
+        <forward name="savePage" path="/newsAction.do?method=view" redirect="true"/>
         <forward name="addPage" path="newsEdit.page"/>
         <forward name="errorPage" path="error.page"/>
     </global-forwards>
     <action-mappings>
-        <action path="/index" forward="newsManagement.page"/>
+        <action path="/index" forward="/newsAction.do"/>
         <action path="/newsAction"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 parameter="method"

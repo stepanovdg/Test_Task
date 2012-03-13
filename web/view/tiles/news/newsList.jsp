@@ -38,11 +38,11 @@
                     </div>
                     <div id="listlinks">
                         <div id=Lnk001>
-                            <a href="newsAction.do?method=${newsView}&idSelected=${news.newsId}">
+                            <a href="newsAction.do?method=${newsView}&selectedId=${news.newsId}">
                                 <bean:message key="jsp.list.button.view"/></a>
                         </div>
                         <div id=Lnk002>
-                            <a href="newsAction.do?method=${newsEdit}&idSelected=${news.newsId}">
+                            <a href="newsAction.do?method=${newsEdit}&selectedId=${news.newsId}">
                                 <bean:message key="jsp.list.button.edit"/></a>
                         </div>
                         <div id=Cb001>
@@ -52,10 +52,10 @@
                 </nested:nest>
             </div>
         </logic:iterate>
-        <input type="hidden" id="confirmFromList" value="<bean:message key="jsp.list.confirm.delete"/>"/>
-        <input type="hidden" id="notChecked" value="<bean:message key="jsp.list.alert.delete"/>"/>
+        <input type="hidden" id="confirmFromList" value="<bean:message key='jsp.list.confirm.delete'/>"/>
+        <input type="hidden" id="notChecked" value="<bean:message key='jsp.list.alert.delete'/>"/>
 
-        <div id="Btn002">
+        <div id="Btn002l">
             <html:submit styleId="listDelete" property="method">
                 <bean:message key="jsp.list.button.delete"/>
             </html:submit>

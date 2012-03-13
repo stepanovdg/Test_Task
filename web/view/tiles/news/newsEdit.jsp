@@ -69,21 +69,22 @@
                 </div>
             </nested:nest>
         </div>
-        <input type="hidden" id="alertTitle" value="<bean:message key="jsp.list.alert.title"/>"/>
-        <input type="hidden" id="alertBrief" value="<bean:message key="jsp.list.alert.brief"/>"/>
-        <input type="hidden" id="alertDate" value="<bean:message key="jsp.list.alert.date"/>"/>
-        <input type="hidden" id="alertContent" value="<bean:message key="jsp.list.alert.content"/>"/>
-        <input type="hidden" id="alertLastSymb" value="<bean:message key="jsp.list.alert.lastSymb"/>"/>
+        <input type="hidden" id="alertTitle" value="<bean:message key='jsp.list.alert.title'/>"/>
+        <input type="hidden" id="alertBrief" value="<bean:message key='jsp.list.alert.brief'/>"/>
+        <input type="hidden" id="alertDate" value="<bean:message key='jsp.list.alert.date'/>"/>
+        <input type="hidden" id="alertContent" value="<bean:message key='jsp.list.alert.content'/>"/>
+        <input type="hidden" id="alertLastSymb" value="<bean:message key='jsp.list.alert.lastSymb'/>"/>
 
 
-        <div id="Btn001v">
-            <html:submit styleId="editSave" property="method">
-                <bean:message key="jsp.edit.button.save"/>
-            </html:submit>
-        </div>
+
         <div id="Btn002v">
             <html:submit styleId="editCancel" property="method">
                 <bean:message key="jsp.edit.button.cancel"/>
+            </html:submit>
+        </div>
+         <div id="Btn001v">
+            <html:submit styleId="editSave" property="method">
+                <bean:message key="jsp.edit.button.save"/>
             </html:submit>
         </div>
     </html:form>

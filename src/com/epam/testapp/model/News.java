@@ -1,6 +1,10 @@
 package com.epam.testapp.model;
 
+import org.hibernate.annotations.*;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -13,24 +17,28 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "NEWS")
-public class News implements Serializable{
+public class News implements Serializable {
 
     @Id
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "NEWS_ID")
+    @GenericGenerator(name = "generator",
+            strategy = "sequence-identity",
+            parameters =
+            @org.hibernate.annotations.Parameter(name = "sequence",value = "NEWS_SEQ"))
+    @GeneratedValue(generator = "generator")
     private Integer newsId;
 
-    @Column(name = "TITLE",length = 100,nullable = false)
+    @Column(name = "TITLE", length = 100, nullable = false)
     private String title;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "CREATION_DATE",length = 10,nullable = false)
+
+    @Column(name = "CREATION_DATE", length = 10, nullable = false)
     private Date creationDate;
 
-    @Column(name = "BRIEF",length = 500,nullable = false)
+    @Column(name = "BRIEF", length = 500, nullable = false)
     private String brief;
 
-    @Column(name = "CONTEXT",length = 2048,nullable = false)
+    @Column(name = "CONTEXT", length = 2048, nullable = false)
     private String context;
 
     public News() {
@@ -65,7 +73,7 @@ public class News implements Serializable{
         return creationDate;
     }
 
-   public void setCreationDate(Date creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 

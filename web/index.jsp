@@ -2,6 +2,6 @@
 <html>
   <head><title></title></head>
   <body>
-   <a href="index.do">To project</a>
+    <jsp:forward page="/index.do"/>
   </body>
 </html>

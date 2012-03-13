@@ -86,7 +86,6 @@ $(document).ready(function(e) {
         }
         var eDate = $("#editDate").val();
         if (eDate == "" ||
-            //  !$("#editDate").val().match(/(\d{4})\-(0\d|1[012])\-([0-2]\d|3[01])/)) {
                 !(((eDate.match(regExpRus)))
                         || (eDate.match(regExpUs)))) {
             alertMessage += $("#alertDate").val();

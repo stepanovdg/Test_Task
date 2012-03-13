@@ -6,13 +6,10 @@
     <jdbc-url>jdbc:oracle:thin:user/user@127.0.0.1:1521</jdbc-url>
     <user-name>user</user-name>
     <user-password>dfdfdfd9dfcfdfd8</user-password>
-    <default-dialect>Oracle</default-dialect>
+    <default-dialect>TEXT</default-dialect>
     <libraries>
       <library>
         <url>jar://$PROJECT_DIR$/lib/ojdbc6-11.2.0.1.0.jar!/</url>
-      </library>
-      <library>
-        <url>file://$PROJECT_DIR$/lib/oracle-driver-license.txt</url>
       </library>
     </libraries>
     <table name="CTX_CLASSES" schema="CTXSYS" catalog="" type="VIEW">
@@ -18037,6 +18034,11 @@
       <column name="CHAR_VALUE" sqlType="VARCHAR2" length="240" precision="0" nullable="true" jdbcType="12" />
       <column name="DATE_VALUE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93" />
       <column name="LONG_VALUE" sqlType="LONG" length="0" precision="0" nullable="true" jdbcType="-1" />
+    </table>
+    <table name="HIBERNATE_SEQUENCE" schema="USER" catalog="" type="SEQUENCE" />
+    <table name="HIBERNATE_SEQUENCES" schema="USER" catalog="" type="TABLE">
+      <column name="SEQUENCE_NAME" sqlType="VARCHAR2" length="255" precision="0" nullable="true" jdbcType="12" />
+      <column name="SEQUENCE_NEXT_HI_VALUE" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3" />
     </table>
     <table name="NEWS" schema="USER" catalog="" type="TABLE">
       <column name="NEWS_ID" sqlType="NUMBER" length="22" precision="0" nullable="false" jdbcType="3" version="true" />

@@ -1,20 +1,22 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Test Task:war exploded">
+  <artifact type="exploded-war" build-on-make="true" name="Test Task:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/Test_Task_war_exploded</output-path>
     <root id="root">
+      <element id="javaee-facet-resources" facet="News Management/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="News Management" />
-          <element id="library" level="project" name="struts (2)" />
           <element id="jpa-descriptors" facet="News Management/jpa/JPA" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="3.1.0" />
-          <element id="library" level="project" name="struts" />
           <element id="library" level="project" name="JDBC drivers" />
+          <element id="library" level="project" name="struts" />
+          <element id="library" level="project" name="Hibernate" />
+          <element id="library" level="project" name="struts (2)" />
+          <element id="library" level="project" name="Java EE 6" />
+          <element id="library" level="project" name="Spring 3.1.1" />
         </element>
       </element>
-      <element id="javaee-facet-resources" facet="News Management/web/Web" />
     </root>
   </artifact>
 </component>

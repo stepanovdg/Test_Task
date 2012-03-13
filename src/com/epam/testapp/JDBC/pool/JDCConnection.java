@@ -7,6 +7,7 @@ package com.epam.testapp.JDBC.pool;
  * Time: 12:47
  *
  */
+
 import java.sql.*;
 import java.util.Map;
 import java.util.Properties;
@@ -16,22 +17,22 @@ public class JDCConnection implements Connection {
 
     private JDCConnectionPool pool;
     private Connection conn;
-    private boolean inUse;
+    private volatile boolean inUse;
     private long timeStamp;
 
 
     public JDCConnection(Connection conn, JDCConnectionPool pool) {
         this.conn=conn;
         this.pool=pool;
-        this.inUse =false;
+        this.inUse = false;
         this.timeStamp =0;
     }
 
-    public synchronized boolean lease() {
+    public boolean lease() {
        if(inUse)  {
            return false;
        } else {
-          inUse =true;
+          inUse = true;
           timeStamp =System.currentTimeMillis();
           return true;
        }
@@ -58,7 +59,7 @@ public class JDCConnection implements Connection {
     }
 
     protected void expireLease() {
-        inUse =false;
+        inUse = false;
     }
 
     protected Connection getConnection() {

@@ -19,7 +19,8 @@ public class NewsDAO implements NewsDAOIF {
     private static final String NEWS_SAVE = "update NEWS set TITLE = ?,CREATION_DATE = ?,BRIEF = ?,CONTEXT = ? where NEWS_ID = ?";
     private static final String NEWS_GET_ALL = "select * from NEWS order by CREATION_DATE desc ";
     private static final String NEWS_GET = "select * from NEWS where NEWS_ID = ?";
-    private static final String NEWS_DELETE = "delete from NEWS where NEWS_ID = ?";
+    private static final String NEWS_DELETE_ONE = "delete from NEWS where NEWS_ID =?";
+    private static final String NEWS_DELETE = "delete from NEWS where NEWS_ID in (";
 
 
     public void setConnectionManager(ConnectionManager connectionManager) {
@@ -37,8 +38,8 @@ public class NewsDAO implements NewsDAOIF {
         Date newsDate;
         Integer newsId;
         try (Connection cn = connectionManager.getConnection()) {
-            try (PreparedStatement st = cn.prepareStatement(NEWS_GET_ALL)) {
-                try (ResultSet rs = st.executeQuery()) {
+            try (Statement st = cn.createStatement()) {
+                try (ResultSet rs = st.executeQuery(NEWS_GET_ALL)) {
                     if (rs.next()) {
                         do {
                             newsId = rs.getInt(1);
@@ -49,6 +50,8 @@ public class NewsDAO implements NewsDAOIF {
                             news = new News(newsId, title, newsDate, brief, content);
                             newsList.add(news);
                         } while (rs.next());
+                    } else {
+                        throw new SQLException();
                     }
                     return newsList;
                 }
@@ -91,13 +94,25 @@ public class NewsDAO implements NewsDAOIF {
 
     @Override
     public boolean remove(Integer... deleteId) throws SQLException {
-        boolean result = true;
+        boolean result;
+        StringBuilder delete = new StringBuilder(NEWS_DELETE);
         try (Connection cn = connectionManager.getConnection()) {
-            try (PreparedStatement st = cn.prepareStatement(NEWS_DELETE)) {
-                for (Integer id : deleteId) {
-                    st.setInt(1, id);
-                    result = st.execute();
+            if (deleteId.length == 1) {
+                delete= new StringBuilder(NEWS_DELETE_ONE);
+            } else {
+                  for (Integer id : deleteId) {
+                    delete.append('?');
+                    delete.append(',');
                 }
+                delete.deleteCharAt(delete.length() - 1);
+                delete.append(')');
+            }
+
+            try (PreparedStatement st = cn.prepareStatement(delete.toString())) {
+                for (int index = 0; index < deleteId.length; index++) {
+                    st.setInt(index + 1, deleteId[index]);
+                }
+                result = st.execute();
                 return result;
             }
 
@@ -106,7 +121,7 @@ public class NewsDAO implements NewsDAOIF {
 
     @Override
     public News fetchById(Integer newsId) throws SQLException {
-        News news = null;
+        News news;
         String title;
         String brief;
         String content;
@@ -121,6 +136,8 @@ public class NewsDAO implements NewsDAOIF {
                         brief = rs.getString(4);
                         content = rs.getString(5);
                         news = new News(newsId, title, newsDate, brief, content);
+                    } else {
+                        throw new SQLException();
                     }
                     return news;
                 }

@@ -7,7 +7,6 @@ package com.epam.testapp.JDBC.pool;
  * Time: 12:44
  *
  */
-
 import java.sql.*;
 import java.util.Properties;
 import java.util.logging.Logger;

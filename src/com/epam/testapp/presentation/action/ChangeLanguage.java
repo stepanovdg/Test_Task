@@ -17,13 +17,17 @@ import java.util.Locale;
  */
 
 public class ChangeLanguage extends DispatchAction{
+
+    private static final String LANGUAGE = "language";
+    private static final String NEWS_LIST = "newsList";
+
     @Override
     protected ActionForward unspecified(ActionMapping mapping,
                                         ActionForm form,
                                         HttpServletRequest request,
                                         HttpServletResponse response) throws Exception {
-        setLocale(request, Locale.forLanguageTag(request.getParameter("language")));
-        return mapping.findForward("newsList");
+        setLocale(request, Locale.forLanguageTag(request.getParameter(LANGUAGE)));
+        return mapping.findForward(NEWS_LIST);
     }
 
 

@@ -26,16 +26,17 @@
                 <div class="output"><bean:write property="newsMessage.context" name="newsForm"/></div>
             </div>
         </div>
-        <input type="hidden" id="confirmFromView" value="<bean:message key="jsp.list.confirm.delete"/>"/>
+        <input type="hidden" id="confirmFromView" value="<bean:message key='jsp.list.confirm.delete'/>"/>
 
-        <div id="Btn001v">
-            <html:submit property="method">
-                <bean:message key="jsp.view.button.edit"/>
-            </html:submit>
-        </div>
+
         <div id="Btn002v">
             <html:submit styleId="viewDelete" property="method">
                 <bean:message key="jsp.view.button.delete"/>
+            </html:submit>
+        </div>
+        <div id="Btn001v">
+            <html:submit property="method">
+                <bean:message key="jsp.view.button.edit"/>
             </html:submit>
         </div>
     </html:form>
