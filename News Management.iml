@@ -63,7 +63,7 @@
     <orderEntry type="library" exported="" name="struts (2)" level="project" />
     <orderEntry type="library" exported="" name="Java EE 6" level="project" />
     <orderEntry type="library" exported="" name="JDBC drivers" level="project" />
-    <orderEntry type="library" name="Hibernate" level="project" />
+    <orderEntry type="library" exported="" name="Hibernate" level="project" />
     <orderEntry type="library" name="Java EE 6 (2)" level="project" />
   </component>
   <component name="org.twodividedbyzero.idea.findbugs">

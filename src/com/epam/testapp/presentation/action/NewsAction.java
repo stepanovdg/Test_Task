@@ -1,6 +1,6 @@
 package com.epam.testapp.presentation.action;
 
-import com.epam.testapp.JDBC.pool.NewsDAOIF;
+import com.epam.testapp.jdbc.pool.NewsDAOIF;
 import com.epam.testapp.model.News;
 import com.epam.testapp.presentation.form.NewsForm;
 import org.apache.struts.action.*;

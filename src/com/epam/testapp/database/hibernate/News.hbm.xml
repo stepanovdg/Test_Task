@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.epam.testapp.model">
+    <class name="com.epam.testapp.model.News" table="NEWS">
+        <id name="newsId" column="NEWS_ID" type="integer">
+            <generator class="sequence-identity">
+                <param name="sequence">NEWS_SEQ</param>
+            </generator>
+        </id>
+        <property name="title" type="string" column="TITLE" length="100" not-null="true"/>
+        <property name="creationDate" type="date" column="CREATION_DATE" length="10" not-null="true"/>
+        <property name="brief" column="BRIEF" type="string" length="500" not-null="true"/>
+        <property name="context" column="CONTEXT" type="string" length="2048" not-null="true"/>
+    </class>
+    <query name="getAllNews">
+        <![CDATA[from News order by creationDate desc]]>
+    </query>
+
+    <query name="deleteNews">
+        <![CDATA[delete from News where newsId in :idList]]>
+    </query>
+
+    <query name="fetchById">
+        <![CDATA[from News where newsId = :id]]>
+    </query>
+</hibernate-mapping>

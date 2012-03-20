@@ -1,4 +1,4 @@
-package com.epam.testapp.JDBC.pool;
+package com.epam.testapp.jdbc.pool;
 
 import com.epam.testapp.model.News;
 

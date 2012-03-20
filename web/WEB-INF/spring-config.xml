@@ -29,13 +29,18 @@
           class="org.springframework.orm.jpa.JpaTransactionManager" scope="singleton">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
-    <!--tx:annotation-driven transaction-manager="transactionManagerJPA"/-->
-    <tx:annotation-driven transaction-manager="transactionManagerHibernate"/>
+    <tx:annotation-driven transaction-manager="transactionManagerJPA"/>
+    <!--<tx:annotation-driven transaction-manager="transactionManagerHibernate"/>-->
     <bean id="newsJPADAO" class="com.epam.testapp.database.jpa.NewsJPADAO"/>
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="annotatedClasses" value="com.epam.testapp.model.News"/>
+        <!--<property name="annotatedClasses" value="com.epam.testapp.model.News"/>-->
+        <property name="mappingResources">
+            <list>
+                <value>/com/epam/testapp/database/hibernate/News.hbm.xml</value>
+            </list>
+        </property>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.current_session_context_class">
@@ -53,7 +58,7 @@
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <bean id="connectionManager" scope="singleton" class="com.epam.testapp.JDBC.pool.ConnectionManager">
+    <bean id="connectionManager" scope="singleton" class="com.epam.testapp.jdbc.pool.ConnectionManager">
         <constructor-arg index="0" value="oracle.jdbc.OracleDriver"/>
         <constructor-arg index="1" value="jdbc:oracle:thin:user/user@127.0.0.1:1521"/>
         <constructor-arg index="2" value="user"/>
@@ -61,15 +66,15 @@
         <constructor-arg index="4" value="jdbc:jdc:jdcpool"/>
         <constructor-arg index="5" value="jdbc:jdc:"/>
     </bean>
-    <bean id="newsDAO" class="com.epam.testapp.JDBC.pool.NewsDAO">
+    <bean id="newsDAO" class="com.epam.testapp.jdbc.pool.NewsDAO">
         <property name="connectionManager" ref="connectionManager"/>
     </bean>
 
     <bean name="/newsAction"
           class="com.epam.testapp.presentation.action.NewsAction">
-        <!--property name="newsDAO" ref="newsDAO"/-->
-        <property name="newsDAO" ref="newsHibernateDAO"/>
-        <!--property name="newsDAO" ref="newsJPADAO"/-->
+        <!--<property name="newsDAO" ref="newsDAO"/>-->
+        <!--<property name="newsDAO" ref="newsHibernateDAO"/>-->
+        <property name="newsDAO" ref="newsJPADAO"/>
     </bean>
     <bean name="/changeLanguage"
           class="com.epam.testapp.presentation.action.ChangeLanguage">

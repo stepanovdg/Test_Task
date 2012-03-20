@@ -1,11 +1,10 @@
 package com.epam.testapp.database.hibernate;
 
-import com.epam.testapp.JDBC.pool.NewsDAOIF;
+import com.epam.testapp.jdbc.pool.NewsDAOIF;
 import com.epam.testapp.model.News;
-import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +21,11 @@ import java.util.List;
 @Transactional
 @Repository
 public class NewsHibernateDAO implements NewsDAOIF {
-    private static final String CREATION_DATE = "creationDate";
+    private static final String GET_ALL_NEWS = "getAllNews";
+    private static final String DELETE_NEWS = "deleteNews";
+    private static final String ID_LIST = "idList";
+    private static final String ID = "id";
+    private static final String FETCH_BY_ID = "fetchById";
     private Class<News> persistentClass = News.class;
 
     @Resource
@@ -32,9 +35,8 @@ public class NewsHibernateDAO implements NewsDAOIF {
     @Override
     public List<News> getList() throws SQLException {
         Session session = sessionFactory.getCurrentSession();
-        Criteria criteria = session.createCriteria(persistentClass);
-        criteria.addOrder(Order.desc(CREATION_DATE));
-        return (List<News>) criteria.list();
+        Query query = session.getNamedQuery(GET_ALL_NEWS);
+        return (List<News>) query.list();
     }
 
     @Override
@@ -51,19 +53,18 @@ public class NewsHibernateDAO implements NewsDAOIF {
 
     @Override
     public boolean remove(Integer... deleteId) throws SQLException {
-
-         News news;
-         Session session = sessionFactory.getCurrentSession();
-        for (Integer id : deleteId) {
-            news = (News) session.get(persistentClass, id);
-            session.delete(news);
-        }
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.getNamedQuery(DELETE_NEWS);
+        query.setParameterList(ID_LIST, deleteId);
+        query.executeUpdate();
         return true;
     }
 
     @Override
     public News fetchById(Integer newsId) throws SQLException {
-        Session session = sessionFactory.getCurrentSession();
-        return (News) session.get(persistentClass, newsId);
+       Session session = sessionFactory.getCurrentSession();
+       Query query = session.getNamedQuery(FETCH_BY_ID);
+       query.setParameter(ID, newsId);
+       return (News) query.list().get(0);
     }
 }
